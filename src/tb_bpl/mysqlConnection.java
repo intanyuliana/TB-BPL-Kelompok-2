@@ -10,7 +10,7 @@ public class mysqlConnection {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/tb_bpl?serverTimezone=Asia/Jakarta","root","");
 			return conn;
-			
+			 
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, e);
 			return null;
