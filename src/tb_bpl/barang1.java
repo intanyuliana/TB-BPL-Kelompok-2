@@ -11,6 +11,8 @@ import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JSpinner;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class barang1 {
        
@@ -52,7 +54,7 @@ public class barang1 {
 	private void initialize() {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(255, 240, 245));
-		frame.setBounds(0, 0, 1250, 680);
+		frame.setBounds(0, 0, 1250, 716);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -64,7 +66,7 @@ public class barang1 {
 		panel.setLayout(null);
 		
 		JLabel lblNewLabel_1 = new JLabel("Tambah Barang");
-		lblNewLabel_1.setBounds(90, 8, 159, 25);
+		lblNewLabel_1.setBounds(101, 11, 159, 25);
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 18));
 		panel.add(lblNewLabel_1);
 		
@@ -124,6 +126,10 @@ public class barang1 {
 		panel.add(textField_4);
 		
 		JButton btnNewButton = new JButton("Tambah");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnNewButton.setBounds(113, 262, 89, 23);
 		panel.add(btnNewButton);
@@ -206,5 +212,29 @@ public class barang1 {
 		btnRestok.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnRestok.setBounds(108, 137, 89, 23);
 		panel_2.add(btnRestok);
+		
+		JButton btnNewButton_1 = new JButton("Refresh");
+		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnNewButton_1.setBounds(20, 645, 89, 23);
+		frame.getContentPane().add(btnNewButton_1);
+		
+		JButton btnNewButton_2 = new JButton("Update");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnNewButton_2.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnNewButton_2.setBounds(127, 645, 89, 23);
+		frame.getContentPane().add(btnNewButton_2);
+		
+		JButton btnNewButton_3 = new JButton("Hapus");
+		btnNewButton_3.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnNewButton_3.setBounds(236, 645, 89, 23);
+		frame.getContentPane().add(btnNewButton_3);
+		
+		JButton btnNewButton_4 = new JButton("Pencarian");
+		btnNewButton_4.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnNewButton_4.setBounds(343, 645, 116, 23);
+		frame.getContentPane().add(btnNewButton_4);
 	}
 }
