@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 05 Des 2020 pada 03.31
+-- Waktu pembuatan: 20 Des 2020 pada 07.01
 -- Versi server: 10.4.11-MariaDB
 -- Versi PHP: 7.4.5
 
@@ -34,6 +34,14 @@ CREATE TABLE `barang` (
   `harga_beli` int(11) NOT NULL,
   `harga_jual` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `barang`
+--
+
+INSERT INTO `barang` (`sku`, `nama`, `stock`, `harga_beli`, `harga_jual`) VALUES
+('A12', 'AQUA', 54, 1800, 3000),
+('B13', 'OREO', 45, 5000, 7000);
 
 -- --------------------------------------------------------
 

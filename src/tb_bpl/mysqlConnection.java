@@ -1,7 +1,6 @@
 package tb_bpl;
 
 import java.sql.*;
-import javax.swing.*;
 
 public class mysqlConnection {
 	Connection conn = null;
@@ -12,7 +11,7 @@ public class mysqlConnection {
 			return conn;
 			 
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, e);
+			 e.printStackTrace();
 			return null;
 		}
 	}
