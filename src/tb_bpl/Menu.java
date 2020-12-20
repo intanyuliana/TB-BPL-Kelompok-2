@@ -142,14 +142,14 @@ public class Menu {
         try {
             int pilihan = input.nextInt();
 
-    		Transaksi1 transaksi = new Transaksi1();
+    		Transaksi transaksi = new Transaksi();
     		
             switch (pilihan) {
                 case 0:
                     System.exit(0);
                     break;
                 case 1:
-                	transaksi.jual();
+                	transaksi.mulaitransaksi();
                     break;
                 case 9:
                 	menuUtama();
