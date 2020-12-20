@@ -1,11 +1,9 @@
 package tb_bpl;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+import jjava.util.Scanner;
 
 public class Menu {
-	static InputStreamReader inputStreamReader = new InputStreamReader(System.in);
-	static BufferedReader input = new BufferedReader(inputStreamReader);
+	static Scanner input = new Scanner(System.in);
 
 	public static void menuUtama() {
 		System.out.println("\n--------------- Menu Utama ---------------");
@@ -18,9 +16,9 @@ public class Menu {
         System.out.print("PILIHAN> ");
 
         try {
-            int pilihan = Integer.parseInt(input.readLine());
+            int pilihan = input.nextInt();
             
-            //percabangan
+      
             switch (pilihan) {
                 case 0:
                     System.exit(0);
@@ -59,7 +57,7 @@ public class Menu {
         System.out.print("PILIHAN> ");
 		
         try {
-            int pilihan = Integer.parseInt(input.readLine());
+            int pilihan = input.nextInt();
 
     		Barang1 barang = new Barang1();
     		
@@ -103,7 +101,7 @@ public class Menu {
         System.out.print("PILIHAN> ");
         
         try {
-            int pilihan = Integer.parseInt(input.readLine());
+            int pilihan = input.nextInt();
 
     		Transaksi transaksi = new Transaksi();
     		
