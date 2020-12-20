@@ -1,6 +1,6 @@
 package tb_bpl;
 
-import jjava.util.Scanner;
+import java.util.Scanner;
 
 public class Menu {
 	static Scanner input = new Scanner(System.in);
