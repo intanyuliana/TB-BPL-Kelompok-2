@@ -9,9 +9,10 @@ public class Menu {
 
 	public static void menuUtama() {
 		System.out.println("\n--------------- Menu Utama ---------------");
-		System.out.println("1. Master Barang");
-		System.out.println("2. Transaksi");
-		System.out.println("3. Laporan");
+		System.out.println("1. Informasi User");
+		System.out.println("2. Master Barang");
+		System.out.println("3. Transaksi");
+		System.out.println("4. Laporan");
 		System.out.println("");
         System.out.print("PILIHAN> ");
 
@@ -23,7 +24,10 @@ public class Menu {
                 case 0:
                     System.exit(0);
                     break;
-                case 1:
+//                case 1:
+//                   infouser();
+//                    break;
+                case 2:
                     menuBarang();
                     break;
 //                case 2:
