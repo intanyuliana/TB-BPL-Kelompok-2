@@ -27,7 +27,18 @@ public class Transaksi {
 			
 //			blok tanggal
 			
-			
+//			bikin id
+//			baca nomor resi
+//			masukin perulangan
+//			baca sku
+//			trus tampilin barang sesuai sku
+//			trus update jumlahnya di stok barang
+//			trus itung jumlah * hargajual = totalperbarang
+//			tutup perulangan
+//			tambahin hargatotal += totalperbarang
+//			insert ke tabel transaksi_detail: id, sku, noresi, jumlah, harga
+//			id ++
+
 			
 //			insert ke tabel transaksi: noresi, tanggal, username
 			
