@@ -52,7 +52,7 @@ public class Menu {
 		System.out.println("3. Restock Barang");
 		System.out.println("5. Update Data Barang");
 		System.out.println("6. Hapus Data Barang");
-		System.out.println("7. Menu Utama");
+		System.out.println("9. Menu Utama");
 		System.out.println("");
         System.out.print("PILIHAN> ");
 		
@@ -80,7 +80,7 @@ public class Menu {
                 case 5:
                     barang.hapus();
                      break;
-                case 6:
+                case 9:
                 	menuUtama();
                     break;
                 default:
