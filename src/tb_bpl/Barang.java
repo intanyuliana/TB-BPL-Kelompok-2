@@ -8,6 +8,7 @@ public class Barang {
 	int stok;
 	int hargabeli;
 	int hargajual;
+	int harga;
 	int restok;
 	Scanner input = new Scanner(System.in);
 	
@@ -16,18 +17,24 @@ public class Barang {
 		this.sku = input.next();
 		System.out.print("Nama Barang\t: ");
 		this.nama = input.next();
-		System.out.print("Jumlah\t\t: ");
+		System.out.print("Jumlah\t: ");
 		this.stok = input.nextInt();
 		System.out.print("Harga Beli\t: Rp ");
 		this.hargabeli = input.nextInt();
 		System.out.print("Harga Jual\t: Rp ");
-		this.hargajual = input.nextInt();
+		this.harga = input.nextInt();
+		
+		if (this.harga<this.hargabeli) {
+			System.out.println("Harga Jual lebih kecil dari harga beli!!");
+		}else {
+			this.hargajual= this.harga;
+		}
 	}
 	
 	public void restok() {
 		System.out.print("Kode Barang yang akan di Restok\t : ");
 		this.sku = input.next();
-		System.out.print("Jumlah Penambahan stok\t\t: ");
+		System.out.print("Jumlah Penambahan stok\t : ");
 		this.restok = input.nextInt();
 	}
 

@@ -51,9 +51,13 @@ public class Barang1 {
 			int hargabeli=brg.hargabeli;
 			int hargajual=brg.hargajual;
 
-			String sql = "INSERT INTO barang (sku,nama,stock,harga_beli,harga_jual) VALUES ('%s','%s','%d','%d','%d')";
-			sql = String.format(sql,sku,nama,stok,hargabeli,hargajual);
+			String sql = "INSERT INTO barang (sku,nama,stock,harga_beli,harga_jual) VALUES (?,?,?,?,?)";
 			PreparedStatement pst = connection.prepareStatement(sql);
+			pst.setString(1, sku);
+			pst.setString(2, nama);
+			pst.setInt(3, stok);
+			pst.setInt(4, hargabeli);
+			pst.setInt(5, hargajual);
 			pst.execute();
 			
     		System.out.println("Data Berhasil Ditambahkan!\n");
@@ -68,26 +72,27 @@ public class Barang1 {
 	
 	public void restok() {
 		try {
-			System.out.println("\n--- Restock Barang ---");
 			Barang brg = new Barang();
 			brg.restok();
 			
 			String sku = brg.sku;
 			int tambah = brg.restok;
 			
-			String query = "SELECT * FROM barang WHERE sku='%s'";
-			query = String.format(query,sku);
+			String query = "SELECT * FROM barang WHERE sku=?";
 			PreparedStatement pst = connection.prepareStatement(query);
+			pst.setString(1, sku);
 			ResultSet res = pst.executeQuery();
+			
 			res.next();
 			int stokawal = res.getInt("stock");
 			String nama = res.getString("nama");
 			
 			int restok = stokawal + tambah;
 			
-			String sql = "UPDATE barang SET stock='%d' WHERE sku='%s'";
-			sql = String.format(sql,restok,sku);
+			String sql = "UPDATE barang SET stock=? WHERE sku=?";
 			PreparedStatement pstt = connection.prepareStatement(sql);
+			pstt.setInt(1, restok);
+			pstt.setString(2, sku);
 			pstt.execute();
 			
 			System.out.println("Stock " +nama +" Berhasil ditambahkan!!");
@@ -97,7 +102,6 @@ public class Barang1 {
 			e.printStackTrace();
 		}
 	}
-
 	public void update() {
 		try {
 			System.out.println("\n--- Update Barang ---");
@@ -144,6 +148,5 @@ public class Barang1 {
 		 catch (Exception e) {
 				e.printStackTrace();
 			}
-		
 	}
 }
