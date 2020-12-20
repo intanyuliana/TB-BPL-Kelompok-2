@@ -105,7 +105,7 @@ public class Menu {
         try {
             int pilihan = Integer.parseInt(input.readLine());
 
-    		transaksi transaksi = new transaksi();
+    		Transaksi transaksi = new Transaksi();
     		
             switch (pilihan) {
                 case 0:
