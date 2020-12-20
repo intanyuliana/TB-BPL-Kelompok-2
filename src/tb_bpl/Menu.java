@@ -13,6 +13,7 @@ public class Menu {
 		System.out.println("2. Master Barang");
 		System.out.println("3. Transaksi");
 		System.out.println("4. Laporan");
+		System.out.println("0. Keluar");
 		System.out.println("");
         System.out.print("PILIHAN> ");
 
@@ -30,9 +31,9 @@ public class Menu {
                 case 2:
                     menuBarang();
                     break;
-//                case 2:
-//                    menuTransaksi();
-//                    break;
+                case 3:
+                    menuTransaksi();
+                    break;
 //                case 3:
 //                    Laporan();
 //                    break;
@@ -53,6 +54,7 @@ public class Menu {
 		System.out.println("5. Update Data Barang");
 		System.out.println("6. Hapus Data Barang");
 		System.out.println("9. Menu Utama");
+		System.out.println("0. Keluar");
 		System.out.println("");
         System.out.print("PILIHAN> ");
 		
@@ -92,4 +94,36 @@ public class Menu {
         }
 
 	}
+	
+	public static void menuTransaksi() {
+		System.out.println("\n-------- Transaksi --------");
+		System.out.println("1. Transaksi");
+		System.out.println("9. Menu Utama");
+		System.out.println("");
+        System.out.print("PILIHAN> ");
+        
+        try {
+            int pilihan = Integer.parseInt(input.readLine());
+
+    		transaksi transaksi = new transaksi();
+    		
+            switch (pilihan) {
+                case 0:
+                    System.exit(0);
+                    break;
+                case 1:
+                	transaksi.jual();
+                    break;
+                case 9:
+                	menuUtama();
+                    break;
+                default:
+                    System.out.println("Pilihan salah!");
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+	}
+	
 }
