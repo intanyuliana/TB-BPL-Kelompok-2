@@ -102,6 +102,7 @@ public class Barang1 {
 			e.printStackTrace();
 		}
 	}
+	
 	public void update() {
 		try {
 			System.out.println("\n--- Update Barang ---");

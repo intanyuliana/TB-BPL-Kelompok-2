@@ -95,15 +95,16 @@ public class Menu {
 	
 	public static void menuTransaksi() {
 		System.out.println("\n-------- Transaksi --------");
-		System.out.println("1. Transaksi");
+		System.out.println("1. Transaksi baru");
 		System.out.println("9. Menu Utama");
+		System.out.println("0. Keluar");
 		System.out.println("");
         System.out.print("PILIHAN> ");
         
         try {
             int pilihan = input.nextInt();
 
-    		Transaksi transaksi = new Transaksi();
+    		Transaksi1 transaksi = new Transaksi1();
     		
             switch (pilihan) {
                 case 0:
