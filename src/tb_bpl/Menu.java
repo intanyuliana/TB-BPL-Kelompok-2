@@ -29,7 +29,7 @@ public class Menu {
                 case 2:
                     menuBarang();
                     break;
-                case 3:
+                case 3: 
                     menuTransaksi();
                     break;
 //                case 3:
