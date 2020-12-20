@@ -97,4 +97,53 @@ public class Barang1 {
 			e.printStackTrace();
 		}
 	}
+
+	public void update() {
+		try {
+			System.out.println("\n--- Update Barang ---");
+			Barang brg = new Barang();
+			brg.edit();
+			
+			String sku = brg.sku;
+			String nama = brg.nama;
+			int stok = brg.stok;
+			int hargabeli = brg.hargabeli;
+			int hargajual = brg.hargajual;
+			
+			String sql = "UPDATE barang SET nama='%s',stok='%d',hargabeli='%d',hargajual='%d' WHERE sku='%s'";
+			sql = String.format(sql,nama,stok,hargabeli,hargajual,sku);
+			PreparedStatement pstt = connection.prepareStatement(sql);
+			pstt.execute();
+			
+			System.out.println("Stock " + sku +" Berhasil diupdate!!");
+    		Menu.menuBarang();
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+	public void hapus() {
+		 try
+         {
+			System.out.println("\n--- Delete Barang ---");
+			Barang brg = new Barang();
+			brg.delete();
+			
+			String sku = brg.sku;
+
+		    String sql=String.format("DELETE from barang WHERE sku=%s", sku);
+		    sql = String.format(sql,sku);
+			PreparedStatement pstt = connection.prepareStatement(sql);
+			pstt.execute();
+			
+			System.out.println("Stock " + sku +" Berhasil didelete!!");
+    		Menu.menuBarang();
+         }
+		 catch (Exception e) {
+				e.printStackTrace();
+			}
+		
+	}
 }
