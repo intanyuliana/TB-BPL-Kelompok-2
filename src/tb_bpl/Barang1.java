@@ -115,9 +115,13 @@ public class Barang1 {
 			int hargajual = brg.hargajual;
 			
 			String sql = "UPDATE barang SET nama='%s',stok='%d',hargabeli='%d',hargajual='%d' WHERE sku='%s'";
-			sql = String.format(sql,nama,stok,hargabeli,hargajual,sku);
-			PreparedStatement pstt = connection.prepareStatement(sql);
-			pstt.execute();
+			PreparedStatement pst = connection.prepareStatement(sql);
+			pst.setString(1, nama);
+			pst.setInt(2, stok);
+			pst.setInt(3, hargabeli);
+			pst.setInt(4, hargajual);
+			pst.setString(5, sku);
+			pst.execute();
 			
 			System.out.println("Stock " + sku +" Berhasil diupdate!!");
     		Menu.menuBarang();
@@ -138,9 +142,9 @@ public class Barang1 {
 			String sku = brg.sku;
 
 		    String sql=String.format("DELETE from barang WHERE sku=%s", sku);
-		    sql = String.format(sql,sku);
-			PreparedStatement pstt = connection.prepareStatement(sql);
-			pstt.execute();
+		    PreparedStatement pst = connection.prepareStatement(sql);
+			pst.setString(1, sku);
+			pst.execute();
 			
 			System.out.println("Stock " + sku +" Berhasil didelete!!");
     		Menu.menuBarang();
