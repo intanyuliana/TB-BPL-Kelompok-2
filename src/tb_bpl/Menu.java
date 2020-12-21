@@ -74,6 +74,9 @@ public class Menu {
                 case 2:
                     uuser.tambahUser();
                     break;
+                case 3:
+                    uuser.updateUser();
+                    break;
                 case 9:
                 	menuUtama();
                     break;

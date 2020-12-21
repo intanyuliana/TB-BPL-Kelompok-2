@@ -74,4 +74,54 @@ public class User1 {
             e.printStackTrace();
         }
 	}
+	
+	public void updateUser() {
+		try {
+			System.out.println("\n--- Update User ---");
+			
+			System.out.print("Username yang akan di ubah\t: ");
+			String user = input.next();
+			System.out.print("Password Awal\t: ");
+			String pass = input.next();
+			LocalDate time = LocalDate.now();
+			DateTimeFormatter frmt = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+			String tm =  String.valueOf(frmt.format(time));
+			
+			String queryy = "SELECT * FROM user WHERE username=?";
+			PreparedStatement pst = connection.prepareStatement(queryy);
+			pst.setString(1, user);
+			ResultSet res = pst.executeQuery();
+			
+			res.next();
+			String pw = res.getString("password");
+		
+			if (pw.equals(pass)== true) {
+				System.out.print("Password Baru\t: ");
+				String pas = input.next();
+				System.out.print("E-mail\t\t: ");
+				String email = input.next();
+				TreeSet<User> userr = new TreeSet<User>();
+				userr.add(new User(user,tm,email,pas));
+		    
+				String sql = "UPDATE user SET login_terakhir=?, email=?, password=? WHERE username=? ";
+				PreparedStatement psst = connection.prepareStatement(sql);
+				psst.setString(1, tm);
+				psst.setString(2, email);
+				psst.setString(3, pas);
+				psst.setString(4, user);
+				psst.execute();
+				System.out.println("Update Data User Berhasil!!");
+			}
+			else {
+				System.out.println("Password Lama Anda Salah!!");
+			}
+			Menu.menuUser();
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+			Menu.menuUser();
+		}
+		
+		
+	}
 }
