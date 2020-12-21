@@ -1,6 +1,7 @@
 package tb_bpl;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Transaksi1 {
@@ -22,9 +23,33 @@ public class Transaksi1 {
 			
 			if(user.equals(usr)) {
 				trk.tambahjual();
-				trk.bacadata();
-				//sql yang ke 2
-			}else {
+				trk.bacabarcode();
+				String query1 = "SELECT * FROM barang WHERE sku = '"+trk.bacasku+"'";
+				PreparedStatement pst1 = connection.prepareStatement(query1);
+				ResultSet res1 = pst1.executeQuery();
+	            
+	            System.out.println("\n\t\t\t\t\t Detail Barang ");
+	            System.out.println("\t------------------------------------------------------");
+	            System.out.println("\t| Kode Barang\t| Nama Barang\t| Harga Jual\t|");
+	            System.out.println("\t------------------------------------------------------");
+	            
+	            ArrayList<Barang> BRG = new ArrayList<Barang>();
+	            while (res1.next()) {
+	                
+	    			BRG.add(new Barang(res1.getString("sku"), res1.getString("nama"), res1.getInt("stock"), res1.getInt("harga_beli"), res1.getInt("harga_jual")));
+	                
+	            }
+	            for (Barang brg : BRG) {
+	    			System.out.println("\t|"+brg.sku+"\t\t|"+brg.nama+"\t\t|"+brg.hargajual+"\t\t|");
+	    		}
+	            
+	            System.out.println("\t-------------------------------------------------------\n");
+	            
+	            trk.tambahdetail();
+	            
+	            String sql ;
+			}
+			else {
 				System.out.println("Username Petugas tidak ditemukan!!");
 			}
 			
@@ -35,8 +60,6 @@ public class Transaksi1 {
 		}
 		
 	}
-	
-	
 	
 	
 	

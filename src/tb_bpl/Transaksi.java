@@ -10,37 +10,30 @@ public class Transaksi {
 	int jumlahharga;
 	int totalharga;
 	int stok; 
+	int harga;
 	String bacasku;
 	String noresi;
 	String username; 
 	String tgl;
+	String namabarang;
 	
 	public void tambahjual() {
-		System.out.print("Nomor Resi: ");
+		System.out.print("Nomor Resi\t: ");
 		this.noresi = input.next();
 	}
 	
-	public void bacadata() {
-		try {
-			String query = "SELECT * FROM barang";
-			PreparedStatement pst = connection.prepareStatement(query);
-			ResultSet res = pst.executeQuery();
-            
-            System.out.println("\n\t\t\t Detail barang ");
-            System.out.println("\t-------------------------------------------------");
-            System.out.println("\t| Nama \t| Harga\t |");
-            System.out.println("\t-------------------------------------------------");
-            
-    		String namaa = res.getString("nama");
-    		int hargaa = res.getInt("harga_jual");
-
-            System.out.println("\t|"+namaa+"\t\t|"+hargaa+"\t |");
-            
-            System.out.println("\t-------------------------------------------------");
-		} catch(Exception e) {
-			
-		}
-		
+	public void bacabarcode() {
+		System.out.print("SKU\t\t: ");
+		this.bacasku = input.next();
+	}
+	
+	public void tambahdetail() {
+		System.out.print("Nama Barang\t: ");
+		this.namabarang = input.next();
+		System.out.print("Harga\t\t\t: ");
+		this.harga = input.nextInt();
+		System.out.print("Jumlah\t\t: ");
+		this.jumlah = input.nextInt();
 	}
 
 }
