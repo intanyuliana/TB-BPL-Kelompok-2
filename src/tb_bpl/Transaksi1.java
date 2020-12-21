@@ -8,7 +8,7 @@ public class Transaksi1 {
 	Scanner input = new Scanner(System.in);
 	
 	public void mulaitransaksi(){
-		try {
+		try { 
 			Transaksi trk = new Transaksi();
 			System.out.print("Username Petugas : ");
 			String usr = input.next();

@@ -12,7 +12,7 @@ public class Transaksi {
 	int stok;
 	String bacasku;
 	String noresi;
-	String username;
+	String username; 
 	String tgl;
 	
 	public void tambahjual() {

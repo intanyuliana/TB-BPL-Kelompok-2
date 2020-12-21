@@ -158,7 +158,7 @@ public class Menu {
         try {
             int pilihan = input.nextInt();
 
-    		Transaksi transaksi = new Transaksi();
+    		Transaksi1 transaksi = new Transaksi1();
     		
             switch (pilihan) {
                 case 0:
