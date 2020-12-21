@@ -124,7 +124,7 @@ public class User1 {
 		
 		
 	}
-	public void cariUser() {
+		public void cariUser() {
 		try {
 			System.out.println("\n--- Cari Barang ---");
 			
@@ -163,6 +163,7 @@ public class User1 {
 		 catch (Exception e) {
 				e.printStackTrace();
 			}
+		
 	}
 		
 }
