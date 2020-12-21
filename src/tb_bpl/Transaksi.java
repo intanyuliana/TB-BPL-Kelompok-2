@@ -9,7 +9,7 @@ public class Transaksi {
 	int jumlah;
 	int jumlahharga;
 	int totalharga;
-	int stok;
+	int stok; 
 	String bacasku;
 	String noresi;
 	String username; 
