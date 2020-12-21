@@ -188,8 +188,26 @@ public class User1 {
 			
 			String query = "SELECT * FROM user WHERE username=?";
 			PreparedStatement pst = connection.prepareStatement(query);
-			pst.setString(1, "%"+username+"%");
+			pst.setString(1, username);
 			pst.execute();
+			ResultSet res = pst.executeQuery();
+			
+			System.out.println("\n\t\t\t Detail User ");
+            System.out.println("\t-------------------------------------------------");
+            System.out.println("\t| Username\t| Login Terakhir | E-mail\t|");
+            System.out.println("\t-------------------------------------------------");
+            
+            TreeSet<User> user = new TreeSet<User>();
+            while (res.next()) {
+    			user.add(new User(res.getString("username"), res.getString ("login_terakhir"), res.getString("email"), res.getString("password")));
+            }
+        
+            for (User usr : user) {
+            	System.out.println("\t|"+usr.username+"\t\t|"+usr.login+"\t |"+usr.email+"\t\t|");
+    		}
+            
+            System.out.println("\t-------------------------------------------------");
+            
 			
     		Menu.menuBarang();
 			
