@@ -41,6 +41,7 @@ public class Transaksi1 {
 	            }
 	            for (Barang brg : BRG) {
 	    			System.out.print("\t|"+brg.sku+"\t\t|"+brg.nama+"\t\t|"+brg.stok+"\t\t|"+brg.hargajual+"\t\t|");
+	    			trk.tambahjumlah();
 	    			sisa = brg.stok - trk.jumlah;
 	            }
 	            trk.tambahjumlah();
@@ -51,27 +52,20 @@ public class Transaksi1 {
 				PreparedStatement psst = connection.prepareStatement(sql);
 				psst.setInt(1, sisa);
 				psst.setString(2, trk.bacasku);
-				psst.execute();
-	            
-				String sqll = "INSERT INTO detail_transaksi (username,login_terakhir,email,password) VALUES (?,?,?,?) ";
-				PreparedStatement pst = connection.prepareStatement(sqll);
-				pst.setString(1, usr);
-				pst.setString(2, tm);
-				pst.setString(3, email);
-				pst.setString(4, pass);
-				pst.execute();
+				psst.execute();				
 				
+				trk.masukindata();
 				
 			}
 			else {
 				System.out.println("Username Petugas tidak ditemukan!!");
 			}
 			
-			
-			
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
+		
+		
 		
 	}
 	
