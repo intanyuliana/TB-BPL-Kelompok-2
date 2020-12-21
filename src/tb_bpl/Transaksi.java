@@ -27,12 +27,7 @@ public class Transaksi {
 		this.bacasku = input.next();
 	}
 	
-	public void tambahdetail() {
-		System.out.print("Nama Barang\t: ");
-		this.namabarang = input.next();
-		System.out.print("Harga\t\t\t: ");
-		this.harga = input.nextInt();
-		System.out.print("Jumlah\t\t: ");
+	public void tambahjumlah() {
 		this.jumlah = input.nextInt();
 	}
 

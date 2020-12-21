@@ -31,7 +31,7 @@ public class Transaksi1 {
 	            System.out.println("\n\t\t\t\t\t Detail Barang ");
 	            System.out.println("\t-------------------------------------------------------------------");
 	            System.out.println("\t| Kode Barang\t| Nama Barang\t| Sisa Stok\t| Harga Jual\t|");
-	            System.out.println("\t-------------------------------------------------------------------");
+	            System.out.println("\t-------------------------------------------------------------------\n");
 	            
 	            ArrayList<Barang> BRG = new ArrayList<Barang>();
 	            while (res1.next()) {
@@ -40,12 +40,13 @@ public class Transaksi1 {
 	                
 	            }
 	            for (Barang brg : BRG) {
-	    			System.out.println("\t|"+brg.sku+"\t\t|"+brg.nama+"\t\t|"+brg.stok+"\t\t|"+brg.hargajual+"\t\t|");
+	    			System.out.print("\t|"+brg.sku+"\t\t|"+brg.nama+"\t\t|"+brg.stok+"\t\t|"+brg.hargajual+"\t\t|");
 	    		}
+	            trk.tambahjumlah();
 	            
 	            System.out.println("\t--------------------------------------------------------------------\n");
 	            
-	            trk.tambahdetail();
+	            
 	            
 	            String sql ;
 			}
