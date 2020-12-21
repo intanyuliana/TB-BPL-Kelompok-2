@@ -107,13 +107,18 @@ public class Barang1 {
 			
 			int restok = stokawal + tambah;
 			
-			String sql = "UPDATE barang SET stock=? WHERE sku=?";
-			PreparedStatement pstt = connection.prepareStatement(sql);
-			pstt.setInt(1, restok);
-			pstt.setString(2, sku);
-			pstt.execute();
+			if (restok>stokawal) {
+				String sql = "UPDATE barang SET stock=? WHERE sku=?";
+				PreparedStatement pstt = connection.prepareStatement(sql);
+				pstt.setInt(1, restok);
+				pstt.setString(2, sku);
+				pstt.execute();
+				
+				System.out.println("Stock " +nama +" Berhasil ditambahkan!!");
+			}else {
+				System.out.println("Masukkan jumlah restock yang benar");
+			}
 			
-			System.out.println("Stock " +nama +" Berhasil ditambahkan!!");
     		Menu.menuBarang();
 			
 		}catch (Exception e) {
