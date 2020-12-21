@@ -11,6 +11,7 @@ public class User1 {
 	Connection connection = mysqlConnection.dbConnector();
 	Scanner input = new Scanner(System.in);
 	
+	//Method Login
 	public void login() {
 		try {
 			System.out.println("\n--- Login ---");
@@ -60,6 +61,7 @@ public class User1 {
 		}
 	}
 	
+	//Method untuk menampilkan user
 	public void tampilUser() {
 		try {
 			String query = "SELECT * FROM user";
@@ -89,6 +91,7 @@ public class User1 {
         }
 	}
 	
+	//Method untuk menambahkan user
 	public void tambahUser() {
 		try {
 			System.out.println("\n--- Tambah Data User ---");
@@ -124,6 +127,7 @@ public class User1 {
         }
 	}
 	
+	//Method untuk mengubah password user
 	public void updateUser() {
 		try {
 			System.out.println("\n--- Update User ---");
@@ -173,6 +177,8 @@ public class User1 {
 		
 		
 	}
+
+		//Method untuk mencari user
 		public void cariUser() {
 		try {
 			System.out.println("\n--- Cari Barang ---");
@@ -194,6 +200,7 @@ public class User1 {
 		
 	}
 
+	//Method untuk menghapus user
 	public void hapusUser() {
 		 try
          {
