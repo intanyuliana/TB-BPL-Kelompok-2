@@ -131,7 +131,7 @@ public class Barang1 {
 			
 			String query = "SELECT * FROM barang WHERE sku=?";
 			PreparedStatement pst = connection.prepareStatement(query);
-			pst.setString(1, sku);
+			pst.setString(1, "%"+sku+"%");
 			pst.execute();
 			
 			System.out.println("Stock " +sku +" Berhasil ditambahkan!!");
@@ -186,7 +186,7 @@ public class Barang1 {
 
 		    String sql="DELETE from barang WHERE sku=?";
 		    PreparedStatement pstt = connection.prepareStatement(sql);
-			pstt.setString(1,"%"+sku+"%");
+			pstt.setString(1,sku);
 			pstt.execute();
 			
 			System.out.println("Stock " + sku +" Berhasil didelete!!");
