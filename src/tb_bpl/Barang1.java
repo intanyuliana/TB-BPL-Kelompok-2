@@ -146,29 +146,40 @@ public class Barang1 {
 	public void update() {
 		try {
 			System.out.println("\n--- Update Barang ---");
-			System.out.print("Kode Barang yang akan ditambah\t: ");
+			System.out.print("Kode Barang yang akan diedit: ");
 			String sku = input.next();
 			
-			System.out.print("Nama Barang\t: ");
-			String nama = input.next();
-			System.out.print("Jumlah\t: ");
-			int stok = input.nextInt();
-			System.out.print("Harga Beli\t: Rp ");
-			int hargabeli = input.nextInt();
-			System.out.print("Harga Jual\t: Rp ");
-			int hargajual = input.nextInt();
-		
+			String query = "SELECT * FROM barang WHERE sku=?";
+			PreparedStatement pst = connection.prepareStatement(query);
+			pst.setString(1, sku);
+			ResultSet res = pst.executeQuery();
 			
-			String sql = "UPDATE barang SET nama='%s',stok='%d',hargabeli='%d',hargajual='%d' WHERE sku='%s'";
-			PreparedStatement pstt = connection.prepareStatement(sql);
-			pstt.setString(1, nama);
-			pstt.setInt(2, stok);
-			pstt.setInt(3, hargabeli);
-			pstt.setInt(4, hargajual);
-			pstt.setString(5, sku);
-			pstt.execute();
+			res.next();
+			String skuu = res.getString("sku");
 			
-			System.out.println("Stock " + sku +" Berhasil diupdate!!");
+			if (skuu.equals(sku)) {
+				System.out.print("Nama Barang\t: ");
+				String nama = input.next().trim();
+				System.out.print("Jumlah\t: ");
+				int stok = input.nextInt();
+				System.out.print("Harga Beli\t: Rp ");
+				int hargabeli = input.nextInt();
+				System.out.print("Harga Jual\t: Rp ");
+				int hargajual = input.nextInt();
+				
+				
+				String sql = "UPDATE barang SET nama='%s',stok='%d',hargabeli='%d',hargajual='%d' WHERE sku='%s'";
+				PreparedStatement pstt = connection.prepareStatement(sql);
+				pstt.setString(1, nama);
+				pstt.setInt(2, stok);
+				pstt.setInt(3, hargabeli);
+				pstt.setInt(4, hargajual);
+				pstt.setString(5, sku);
+				pstt.execute();
+				
+				System.out.println("Stock " + sku +" Berhasil diupdate!!");
+			}
+			
     		Menu.menuBarang();
 			
 		}catch (Exception e) {
