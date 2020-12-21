@@ -122,6 +122,27 @@ public class Barang1 {
 		}
 	}
 	
+	public void cari() {
+		try {
+			System.out.println("\n--- Cari Barang ---");
+			
+			System.out.print("Kode Barang yang akan dicari\t: ");
+			String sku = input.next();
+			
+			String query = "SELECT * FROM barang WHERE sku=?";
+			PreparedStatement pst = connection.prepareStatement(query);
+			pst.setString(1, sku);
+			pst.execute();
+			
+			System.out.println("Stock " +sku +" Berhasil ditambahkan!!");
+    		Menu.menuBarang();
+			
+		}catch (Exception e) {
+			System.out.println("Stock Gagal ditambahkan!!");
+			Menu.menuBarang();
+		}
+		
+	}
 	public void update() {
 		try {
 			System.out.println("\n--- Update Barang ---");
@@ -163,9 +184,9 @@ public class Barang1 {
 			System.out.print("Kode Barang yang akan ditambah\t: ");
 			String sku = input.next();
 
-		    String sql=String.format("DELETE from barang WHERE sku=%s", sku);
+		    String sql="DELETE from barang WHERE sku=?";
 		    PreparedStatement pstt = connection.prepareStatement(sql);
-			pstt.setString(1, sku);
+			pstt.setString(1,"%"+sku+"%");
 			pstt.execute();
 			
 			System.out.println("Stock " + sku +" Berhasil didelete!!");
