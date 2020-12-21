@@ -124,4 +124,45 @@ public class User1 {
 		
 		
 	}
+	public void cariUser() {
+		try {
+			System.out.println("\n--- Cari Barang ---");
+			
+			System.out.print("Username yang akan dicari\t: ");
+			String username = input.next();
+			
+			String query = "SELECT * FROM user WHERE username=?";
+			PreparedStatement pst = connection.prepareStatement(query);
+			pst.setString(1, "%"+username+"%");
+			pst.execute();
+			
+    		Menu.menuBarang();
+			
+		}catch (Exception e) {
+			System.out.println("Data Tidak ditemukan!!");
+			Menu.menuBarang();
+		}
+		
+	}
+
+	public void hapusUser() {
+		 try
+         {
+			System.out.println("\n--- Delete Barang ---");
+			System.out.print("Kode Barang yang akan dihapus\t: ");
+			String username = input.next();
+
+		    String sql="DELETE from user WHERE username=?";
+		    PreparedStatement pstt = connection.prepareStatement(sql);
+			pstt.setString(1,username);
+			pstt.execute();
+			
+			System.out.println("Stock " + username +" Berhasil didelete!!");
+    		Menu.menuBarang();
+         }
+		 catch (Exception e) {
+				e.printStackTrace();
+			}
+	}
+		
 }
