@@ -19,24 +19,6 @@ public class User implements Comparable<User>{
 	public void setUsername(String username) {
 		this.username = username;
 	}
-//	public String getLogin() {
-//		return login;
-//	}
-//	public void setLogin(String date) {
-//		this.login = date;
-//	}
-//	public String getEmail() {
-//		return email;
-//	}
-//	public void setEmail(String email) {
-//		this.email = email;
-//	}
-//	public String getPas() {
-//		return pas;
-//	}
-//	public void setPas(String pas) {
-//		this.pas = pas;
-//	}
 	
 	
 	@Override
@@ -51,11 +33,4 @@ public class User implements Comparable<User>{
 	}
 }
 
-//class Compare implements Comparator<User>{
-//
-//	@Override
-//	public int compare(User o1, User o2) {
-//		return o1.getUsername().compareTo(o2.getUsername());
-//	}
-//	
-//}
+
