@@ -22,6 +22,7 @@ public class Transaksi1 {
 			
 			if(user.equals(usr)) {
 				trk.tambahjual();
+				trk.bacadata();
 				//sql yang ke 2
 			}else {
 				System.out.println("Username Petugas tidak ditemukan!!");
@@ -34,6 +35,11 @@ public class Transaksi1 {
 		}
 		
 	}
+	
+	
+	
+	
+	
 	
 //
 //	public void tampilbarang() {
