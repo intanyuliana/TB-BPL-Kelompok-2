@@ -9,7 +9,15 @@ public class Main {
 		System.out.println(" |                                  Kelompok 2 BPL 01                                |");
 		System.out.println(" =====================================================================================");
 		
-		Menu.menuUtama();
+		User1 lgn = new User1();
+		lgn.login();
+		if(lgn=true){
+			Menu.menuUtama();
+		}
+		else{
+			lgn.login
+		}
+		
 	}
 	
 }

@@ -77,7 +77,7 @@ public class Menu {
                 case 3:
                     uuser.updateUser();
                     break;
-		case 4:
+		        case 4:
                     uuser.cariUser();
                     break;
                 case 5:
