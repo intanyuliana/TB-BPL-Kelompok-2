@@ -77,6 +77,12 @@ public class Menu {
                 case 3:
                     uuser.updateUser();
                     break;
+		case 4:
+                    uuser.cariUser();
+                    break;
+                case 5:
+                    uuser.hapusUser();
+                    break;
                 case 9:
                 	menuUtama();
                     break;
