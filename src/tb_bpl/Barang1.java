@@ -129,11 +129,28 @@ public class Barang1 {
 			System.out.print("Kode Barang yang akan dicari\t: ");
 			String sku = input.next();
 			
-			String query = "SELECT * FROM barang WHERE sku=?";
-			PreparedStatement pst = connection.prepareStatement(query);
-			pst.setString(1, "%"+sku+"%");
-			pst.execute();
+			String query3 = "SELECT * FROM barang WHERE sku=?";
+			PreparedStatement pst3 = connection.prepareStatement(query3);
+			pst3.setString(1, sku);
+			pst3.execute();
+			ResultSet res3 = pst3.executeQuery();
 			
+			 System.out.println("\n\t\t\t\t\t Detail Barang ");
+	         System.out.println("\t-------------------------------------------------------------------------");
+	            System.out.println("\t| Kode Barang\t| Nama Barang\t| Stock\t| Harga Beli\t| Harga Jual\t|");
+	            System.out.println("\t-------------------------------------------------------------------------");
+	            
+	            ArrayList<Barang> BRG = new ArrayList<Barang>();
+	            while (res3.next()) {
+	                
+	    			BRG.add(new Barang(res3.getString("sku"), res3.getString("nama"), res3.getInt("stock"), res3.getInt("harga_beli"), res3.getInt("harga_jual")));
+	                
+	            }
+	            for (Barang brg : BRG) {
+	    			System.out.println("\t|"+brg.sku+"\t\t|"+brg.nama+"\t\t|"+brg.stok+"\t|"+brg.hargabeli+"\t\t|"+brg.hargajual+"\t\t|");
+	    		}
+	            
+	            System.out.println("\t-------------------------------------------------------------------------\n");
 			
     		Menu.menuBarang();
 			
