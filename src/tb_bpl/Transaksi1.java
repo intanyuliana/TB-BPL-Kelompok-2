@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Transaksi1 {
 	Connection connection = mysqlConnection.dbConnector();
 	Scanner input = new Scanner(System.in);
-	
+	int sisa;
 	public void mulaitransaksi(){
 		try { 
 			Transaksi trk = new Transaksi();
@@ -41,14 +41,27 @@ public class Transaksi1 {
 	            }
 	            for (Barang brg : BRG) {
 	    			System.out.print("\t|"+brg.sku+"\t\t|"+brg.nama+"\t\t|"+brg.stok+"\t\t|"+brg.hargajual+"\t\t|");
-	    		}
+	    			sisa = brg.stok - trk.jumlah;
+	            }
 	            trk.tambahjumlah();
 	            
 	            System.out.println("\t--------------------------------------------------------------------\n");
 	            
+	            String sql = "UPDATE barang SET stock=? WHERE sku=?";
+				PreparedStatement psst = connection.prepareStatement(sql);
+				psst.setInt(1, sisa);
+				psst.setString(2, trk.bacasku);
+				psst.execute();
 	            
-	            
-	            String sql ;
+				String sqll = "INSERT INTO detail_transaksi (username,login_terakhir,email,password) VALUES (?,?,?,?) ";
+				PreparedStatement pst = connection.prepareStatement(sqll);
+				pst.setString(1, usr);
+				pst.setString(2, tm);
+				pst.setString(3, email);
+				pst.setString(4, pass);
+				pst.execute();
+				
+				
 			}
 			else {
 				System.out.println("Username Petugas tidak ditemukan!!");

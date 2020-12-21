@@ -29,6 +29,7 @@ public class Transaksi {
 	
 	public void tambahjumlah() {
 		this.jumlah = input.nextInt();
+		
 	}
 
 }
