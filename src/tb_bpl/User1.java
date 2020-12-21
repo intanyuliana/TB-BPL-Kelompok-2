@@ -11,6 +11,55 @@ public class User1 {
 	Connection connection = mysqlConnection.dbConnector();
 	Scanner input = new Scanner(System.in);
 	
+	public void login() {
+		try {
+			System.out.println("\n--- Login ---");
+			int i=0;
+			for (i=0;i<3;i++){
+				System.out.print("Username \t: ");
+				String user = input.next();
+				System.out.print("Password \t: ");
+				String pass = input.next();
+				LocalDate time = LocalDate.now();
+				DateTimeFormatter frmt = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+				String tm =  String.valueOf(frmt.format(time));
+				
+				String queryy = "SELECT * FROM user WHERE username=?";
+				PreparedStatement pst = connection.prepareStatement(queryy);
+				pst.setString(1, user);
+				ResultSet res = pst.executeQuery();
+				
+				res.next();
+				String userr = res.getString("username");
+				String pw = res.getString("password");
+				String email = res.getString("email");
+				
+				if (user.equals(userr)==true && pw.equals(pass)== true) {
+					
+					TreeSet<User> uuserr = new TreeSet<User>();
+					uuserr.add(new User(user,tm,email,pass));
+			    
+					String sql = "UPDATE user SET login_terakhir=?WHERE username=? ";
+					PreparedStatement psst = connection.prepareStatement(sql);
+					psst.setString(1, tm);
+					psst.setString(2, user);
+					psst.execute();
+					Menu.menuUtama();
+					break;
+				}
+				else {
+					System.out.println("Password dan Username Tidak Sesuai!!");
+					
+				}
+				
+			}
+				
+		}catch (Exception e) {
+			e.printStackTrace();
+			
+		}
+	}
+	
 	public void tampilUser() {
 		try {
 			String query = "SELECT * FROM user";
