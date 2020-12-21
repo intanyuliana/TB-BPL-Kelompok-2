@@ -134,11 +134,11 @@ public class Barang1 {
 			pst.setString(1, "%"+sku+"%");
 			pst.execute();
 			
-			System.out.println("Stock " +sku +" Berhasil ditambahkan!!");
+			
     		Menu.menuBarang();
 			
 		}catch (Exception e) {
-			System.out.println("Stock Gagal ditambahkan!!");
+			System.out.println("Data Tidak ditemukan!!");
 			Menu.menuBarang();
 		}
 		
