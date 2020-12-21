@@ -49,7 +49,7 @@ public class Menu {
 	public static void menuUser() {
 		System.out.println("\n-------- Pengelolaan User --------");
 		System.out.println("1. Daftar User");
-		System.out.println("2. Tambah UserEdit User");
+		System.out.println("2. Tambah User");
 		System.out.println("3. Edit User");
 		System.out.println("4. Cari User");
 		System.out.println("5. Hapus User");
@@ -57,6 +57,8 @@ public class Menu {
 		System.out.println("0. Keluar");
 		System.out.println("");
         System.out.print("PILIHAN> ");
+        
+        User1 uuser = new User1 ();
 		
         try {
              int pilihan = input.nextInt();
@@ -65,6 +67,12 @@ public class Menu {
             switch (pilihan) {
                 case 0:
                     System.exit(0);
+                    break;
+                case 1:
+                    uuser.tampilUser();
+                    break;
+                case 2:
+                    uuser.tambahUser();
                     break;
                 case 9:
                 	menuUtama();
