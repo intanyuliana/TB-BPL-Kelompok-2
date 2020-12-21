@@ -1,6 +1,7 @@
 package tb_bpl;
 
 import java.sql.*;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
@@ -16,21 +17,21 @@ public class User1 {
 			PreparedStatement pst = connection.prepareStatement(query);
 			ResultSet res = pst.executeQuery();
             
-            System.out.println("\n\t\t\t\t\t Detail User ");
-            System.out.println("\t-----------------------------------------------------------------------------------------");
-            System.out.println("\t| Username\t\t| Login Terakhir\t| E-mail\t\t|");
-            System.out.println("\t-----------------------------------------------------------------------------------------");
+            System.out.println("\n\t\t\t Detail User ");
+            System.out.println("\t-------------------------------------------------");
+            System.out.println("\t| Username\t| Login Terakhir | E-mail\t|");
+            System.out.println("\t-------------------------------------------------");
             
             TreeSet<User> user = new TreeSet<User>();
             while (res.next()) {
-    			user.add(new User(res.getString("username"), res.getString ("login_terakhir"), res.getString("email"), res.getString("pas")));
+    			user.add(new User(res.getString("username"), res.getString ("login_terakhir"), res.getString("email"), res.getString("password")));
             }
         
             for (User usr : user) {
-            	System.out.println("\t|"+usr.username+"\t\t|"+usr.login+"\t|"+usr.email+"\t\t|");
+            	System.out.println("\t|"+usr.username+"\t\t|"+usr.login+"\t |"+usr.email+"\t\t|");
     		}
             
-            System.out.println("\t-----------------------------------------------------------------------------------------");
+            System.out.println("\t-------------------------------------------------");
             
             Menu.menuUser();
 
